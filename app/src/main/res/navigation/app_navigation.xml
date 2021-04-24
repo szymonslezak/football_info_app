@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_navigation"
+    app:startDestination="@id/listFragment">
+
+    <fragment
+        android:id="@+id/teamFragment"
+        android:name="pl.edu.uwr.pum.footballapp.view.detail.club.TeamFragment"
+        android:label="Team" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_teamFragment_to_matchFragment"
+            app:destination="@id/matchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/matchFragment"
+        android:name="pl.edu.uwr.pum.footballapp.view.detail.match.MatchFragment"
+        android:label="Matches"
+        tools:layout="@layout/match_list" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+        <argument
+            android:name="CalledTeam"
+            app:argType="boolean" />
+    </fragment>
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="pl.edu.uwr.pum.footballapp.view.master.ListFragment"
+        android:label="Competitions"
+        tools:layout="@layout/fragment_list">
+        <action
+            android:id="@+id/action_listFragment_to_tableFragment"
+            app:destination="@id/tableFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tableFragment"
+        android:name="pl.edu.uwr.pum.footballapp.view.detail.table.TableFragment"
+        android:label="Table"
+        tools:layout="@layout/table_list">
+        <argument
+            android:name="id"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_tableFragment_to_teamFragment"
+            app:destination="@id/teamFragment" />
+        <action
+            android:id="@+id/action_tableFragment_to_matchFragment"
+            app:destination="@id/matchFragment" />
+        <action
+            android:id="@+id/action_tableFragment_to_topScorerFragment"
+            app:destination="@id/topScorerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/topScorerFragment"
+        android:name="pl.edu.uwr.pum.footballapp.view.detail.top_scorer.TopScorerFragment"
+        android:label="Top Scorers"
+        tools:layout="@layout/topscorer_list" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
+</navigation>

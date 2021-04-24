@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="competition"
+            type="pl.edu.uwr.pum.footballapp.model.Competition" />
+
+        <variable
+            name="palette"
+            type="pl.edu.uwr.pum.footballapp.model.FootballPalette" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@{palette.backgroundColor}"
+        tools:context=".view.detail.DetailFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/dv_picture"
+                    android:layout_width="150dp"
+                    android:layout_height="200dp"
+                    image_url="@{competition.area.ensignUrl}"
+                    android:layout_margin="16dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="16dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/dv_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:text="@{competition.name}"
+                        android:textSize="24sp"
+                        android:textColor="@{palette.titleColor}"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/dv_life"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="@{competition.area.name}"
+                        android:textColor="@{palette.textColor}"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/dv_nationality"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="@{competition.code}"
+                        android:textColor="@{palette.textColor}"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/dv_motivation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="@{competition.area.countryCode}"
+                android:textColor="@{palette.textColor}"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+</layout>
